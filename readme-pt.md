@@ -42,6 +42,8 @@ Se você ainda não tem a imagem Docker localmente, ou se deseja atualizá-la (p
 docker build -t raylib_container .
 ```
 
+> **Raylib Atualizado:** Ao construir a imagem, o Raylib é clonado e compilado diretamente do repositório oficial do GitHub, garantindo que você sempre terá a versão mais recente disponível.
+
 ## Executando o Container
 
 Para iniciar um container interativo com acesso ao seu display e com o código do seu projeto montado:
