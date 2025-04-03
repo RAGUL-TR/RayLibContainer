@@ -5,7 +5,7 @@ Container focused on game development using [Raylib](https://www.raylib.com/). T
 You can see the Container Github Repo here: \
 [Raylib-Container](https://github.com/gm64x/RayLibContainer)
 
-> **Are you using macOS?** Follow the guide for specific instructions. Go to [MacOS Compatibility Guide](#macos-compatibility-guide)
+> **Are you using macOS?** Follow the guide for specific instructions. Go to [MacOS Compatibility Guide](#macos-compatibility-guide) section below.
 
 ## Prerequisites
 
