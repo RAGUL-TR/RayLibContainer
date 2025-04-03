@@ -1,6 +1,6 @@
 # Raylib on Docker (Container)
 
-Container created by Gabriel Miguel ([@gm64x](https://github.com/gm64x)) focused on game development using [Raylib](https://www.raylib.com/). The goal is to provide a consistent and isolated development environment, minimizing configuration issues on the host system.
+Container focused on game development using [Raylib](https://www.raylib.com/). The goal is to provide a consistent and isolated development environment, minimizing configuration issues on the host system.
 
 You can see the Container image here: \
 [Raylib-Container](https://hub.docker.com/r/gmaia325/raylib_container)
