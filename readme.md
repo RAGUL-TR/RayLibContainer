@@ -5,7 +5,7 @@ Container created by Gabriel Miguel ([@gm64x](https://github.com/gm64x)) focused
 You can see the Container image here: \
 [Raylib-Container](https://hub.docker.com/r/gmaia325/raylib_container)
 
-**[Versão em Português](readme.md)**
+**[Versão em Português](readme-pt.md)**
 
 ## Prerequisites
 
