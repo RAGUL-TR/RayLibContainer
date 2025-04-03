@@ -24,11 +24,11 @@ xhost +local:docker
 
 ### 2. Adicionando seu Usuário ao Grupo Docker (Recomendado)
 
-Isso permite que você execute comandos `docker` sem precisar usar `sudo` constantemente.
-
+Adicionar seu usuário ao grupo docker com o comando abaixo geralmente remove a necessidade de usar `sudo` para executar comandos docker:
 ```bash
 sudo usermod -aG docker $USER
 ```
+No entanto, é importante mencionar que, dependendo da configuração específica da sua distribuição Linux, pode haver situações (por exemplo, ao tentar interagir com a interface gráfica ou "abrir o display" a partir de um container) onde o uso de `sudo` ainda se faça necessário para algumas tarefas, independentemente de o usuário pertencer ao grupo docker.
 
 > **Importante:** Após executar este comando, você **precisa fazer logout e login novamente** ou **reiniciar o sistema** para que a mudança de grupo tenha efeito.
 
