@@ -7,6 +7,8 @@ You can see the Container image here: \
 
 **[Versão em Português](readme-pt.md)**
 
+> **Are you using macOS?** Follow the [MacOS Compatibility Guide](MacOSX-Compatibilty.md) for specific instructions.
+
 ## Prerequisites
 
 Before using the container, you need to configure your host system to allow graphical applications from the container to run and to manage Docker without `sudo` (recommended).
@@ -164,3 +166,5 @@ or if you prefer:
 ```bash
     docker build --pull --rm -f 'Dockerfile' -t 'raylib_container:test' '.'
 ```
+
+If you encounter any issues with this documentation, feel free to open an issue on the project's repository.
